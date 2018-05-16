@@ -31,6 +31,7 @@ freqs = transpose(freqs)*THz_to_cminv
 
 figure()
 plot(qp, freqs, color = 'k')
+axhline(0,color='k', linewidth=1)
 xlim(qp[0],qp[-1])
 ylim(freqs.min()*1.05, freqs.max()*1.05)
 xticks(xt,xl)
