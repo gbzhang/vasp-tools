@@ -7,11 +7,18 @@ f.close()
 
 dos = genfromtxt('DOSCAR', skip_header=6)
 
+el = -10
+eh = 10
+
+xh = max(dos[(dos[:,0] < eh) & (dos[:,0] > el),1])
+xh *= 1.5
+
 f=figure(figsize=(8,12))
 plot(dos[:,1],dos[:,0]-ef)
 axhline(0,color='k',linewidth=2)
-#ylim(-5,3)
-xlim(0,max(dos[:,1])*1.05)
+axvline(0,color='k',linewidth=1)
+ylim(el, eh)
+xlim(0,xh)
 xlabel('edos')
 ylabel("Energy (eV)")
 #savefig('edos_mote2.png', bbox_inches='tight', dpi=200)
